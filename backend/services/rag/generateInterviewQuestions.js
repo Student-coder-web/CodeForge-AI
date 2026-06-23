@@ -10,21 +10,28 @@ async function generateInterviewQuestions(
       model: "qwen3:8b",
       temperature: 0.7,
     });
-
-  const prompt = `
+const prompt = `
 You are a Senior Software Engineer.
 
-Analyze the repository information below.
+Analyze the repository.
 
 Repository Context:
 
 ${repoContext}
 
-Generate:
+Tasks:
 
-1. 5 Beginner Questions
-2. 5 Intermediate Questions
-3. 5 Advanced Questions
+1. Identify the project purpose.
+2. Analyze architecture.
+3. Generate:
+   - 5 Beginner Questions
+   - 5 Intermediate Questions
+   - 5 Advanced Questions
+
+Questions must be based on the actual code,
+README,
+dependencies,
+and architecture.
 
 Return only questions.
 `;
